@@ -1,0 +1,117 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.logo {
+  width: 150px;
+}
+
+.nav-items {
+  padding-right: 20px;
+  align-items: center;
+}
+
+.nav-items > ul {
+  font-size: 18px;
+  display: flex;
+  list-style-type: none;
+}
+
+.nav-items > ul > li {
+  margin: 10px;
+  padding: 5px;
+}
+
+.res-card {
+  width: 200px;
+
+  padding: 5px;
+  margin: 5px;
+  background-color: #f0f0f0;
+}
+
+.res-card:hover {
+  border: 1px solid black;
+}
+
+.Search {
+  padding: 10px;
+}
+
+.res-logo {
+  width: 100%;
+}
+
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2px;
+}
+
+.filter-btn {
+  padding: 4px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.comp-name {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.shimmer-container {
+  margin: 2px;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shimmer-card {
+  margin: 5px;
+  padding: 5px;
+  width: 200px;
+  height: 400px;
+  background-color: #f0f0f0;
+}
+
+.shimmer-button {
+  width: 120px;
+  height: 20px;
+  margin: 10px;
+  padding: 4px;
+  background-color: #f0f0f0;
+}
+
+.login {
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.filter {
+  display: flex;
+}
+
+.search-box {
+  padding: 4px;
+  margin: 10px;
+}
+
+.s-btn {
+  padding: 4px;
+}
+
+.user-card {
+  margin: 2px;
+  padding: 10px;
+  border: 1px solid black;
+}
