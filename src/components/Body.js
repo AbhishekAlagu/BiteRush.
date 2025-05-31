@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import RestaurantCard from "./RestaurantCard.js";
 import Shimmer from "./shimmer.js";
 import { useEffect, useState } from "react";
+import useOnlineStatus from "../utils/useOnlineStatus.js";
 
 const Body = () => {
   // state variable - Your original comments maintained
@@ -26,6 +27,15 @@ const Body = () => {
     setresLists(restaurants);
     setfilteredres(restaurants);
   };
+
+  const OnlineStatus = useOnlineStatus();
+
+  if (OnlineStatus == false)
+    return (
+      <h1>
+        Looks like you're Offline !! please check your internet connection
+      </h1>
+    );
   // conditiona rendering - Your original typo in comment preserved
 
   return !resLists || resLists.length === 0 ? (
