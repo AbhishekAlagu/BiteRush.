@@ -8,14 +8,20 @@ import RestaurantMenu from "./components/RestaurantMenu.js";
 import Contact from "./components/Contact.js";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import "./index.css";
+import Footer from "./components/Footer.js";
 
 //chunking {dynamic bundeling ,code splitting } all mean the same
 
 const AppLayout = () => {
   return (
-    <div className="app">
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <Outlet />
+
+      <main className="flex-grow">
+        <Outlet /> {/* Or your main content */}
+      </main>
+
+      <Footer />
     </div>
   );
 };
