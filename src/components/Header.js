@@ -13,25 +13,27 @@ const Header = () => {
   //if dependency array is empty = [] => useeffect is called only on the initial render(justonce when the componenet is rendered for the first time)
 
   return (
-    <div className="header">
-      <div className="logo-container">
-        <img className="logo " src={LOGO_URL} />
-        <span className="comp-name">BiteRush.</span>
+    <div className="flex justify-between bg-amber-400 shadow-lg">
+      <div className="flex">
+        <img className="w-[170px] " src={LOGO_URL} />
+        <span className="text-2xl font-medium text-white m-2 content-center ">
+          BiteRush.
+        </span>
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>Online Status:{status ? "🟢" : "🔴"}</li>
-          <li>
+      <div className=" content-center ">
+        <ul className="flex mr-8  text-white">
+          <li className="px-4">Online Status:{status ? "🟢" : "🔴"}</li>
+          <li className="px-4">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="px-4">
             <Link to="/about">About Us</Link>
           </li>
-          <li>
+          <li className="px-4">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li>Cart</li>
-          <button
+          <li className="px-4">Cart</li>
+          <div
             className="login"
             onClick={() => {
               btnNameReact == "Login"
@@ -40,7 +42,7 @@ const Header = () => {
             }}
           >
             {btnNameReact}
-          </button>
+          </div>
         </ul>
       </div>
     </div>

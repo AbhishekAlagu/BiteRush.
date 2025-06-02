@@ -4,11 +4,28 @@
     "build": "parcel build index.html"
   },
   "devDependencies": {
-    "parcel": "^2.15.1"
+    "@tailwindcss/postcss": "^4.1.8",
+    "parcel": "^2.15.2"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.3"
-  }
+    "react-router-dom": "^6.22.3",
+    "tailwindcss": "^4.1.8"
+  },
+  "name": "react-project-1",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbhishekAlagu/BiteRush..git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AbhishekAlagu/BiteRush./issues"
+  },
+  "homepage": "https://github.com/AbhishekAlagu/BiteRush.#readme"
 }

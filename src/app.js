@@ -7,6 +7,9 @@ import Error from "./components/Error.js";
 import RestaurantMenu from "./components/RestaurantMenu.js";
 import Contact from "./components/Contact.js";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import "./index.css";
+
+//chunking {dynamic bundeling ,code splitting } all mean the same
 
 const AppLayout = () => {
   return (

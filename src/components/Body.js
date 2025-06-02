@@ -45,11 +45,11 @@ const Body = () => {
     </div>
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="flex justify-between">
+        <div className=" m-4 p-8">
           <input
             type="text"
-            className="search-box"
+            className=" px-8 py-0.5 border border-solid border-black rounded"
             value={searchText}
             onChange={(e) => {
               setsearchText(e.target.value);
@@ -68,7 +68,7 @@ const Body = () => {
           />
 
           <button
-            className="s-btn"
+            className="px-4 py-2 bg-emerald-300 m-2 rounded-lg"
             onClick={() => {
               // Filter the restaurant cards and update the UI
               // searhtext - Your original typo in comment preserved
@@ -83,19 +83,21 @@ const Body = () => {
             Search
           </button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            const filteredList = resLists.filter(
-              (res) => res.info?.avgRating > 4
-            );
-            setfilteredres(filteredList);
-          }}
-        >
-          Top Rated Restaurant
-        </button>
+        <div className="m-4 p-8">
+          <button
+            className="bg-emerald-300 px-8 py-2 content-center rounded-lg"
+            onClick={() => {
+              const filteredList = resLists.filter(
+                (res) => res.info?.avgRating > 4
+              );
+              setfilteredres(filteredList);
+            }}
+          >
+            Top Rated Restaurant
+          </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="res-container flex flex-wrap mx-5">
         {/* Added empty state message while preserving your mapping logic */}
         {filteredres.length === 0 ? (
           <h1>No restaurants match your search</h1>
