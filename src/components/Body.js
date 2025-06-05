@@ -3,6 +3,7 @@ import RestaurantCard from "./RestaurantCard.js";
 import Shimmer from "./shimmer.js";
 import { useEffect, useState } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
+import AnimatedContent from "./Animation.js";
 
 const Body = () => {
   // state variable - Your original comments maintained
@@ -46,10 +47,10 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="flex justify-between">
-        <div className=" m-4 p-8">
+        <div className=" m-2 p-4  ">
           <input
             type="text"
-            className=" px-8 py-0.5 border border-solid border-black rounded"
+            className=" py-0.5 md:px-8 md:py-0.5 border border-solid border-black rounded"
             value={searchText}
             onChange={(e) => {
               setsearchText(e.target.value);
@@ -68,7 +69,7 @@ const Body = () => {
           />
 
           <button
-            className="px-4 py-2 bg-emerald-300 m-2 rounded-lg"
+            className="px-2 py-0.5 md:px-4 md:py-2 bg-emerald-300 m-2 rounded-lg"
             onClick={() => {
               // Filter the restaurant cards and update the UI
               // searhtext - Your original typo in comment preserved
@@ -83,7 +84,7 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div className="m-4 p-8">
+        <div className="m-2 p-4">
           <button
             className="bg-emerald-300 px-8 py-2 content-center rounded-lg"
             onClick={() => {
