@@ -35,4 +35,19 @@ const RestaurantCard = (props) => {
   );
 };
 
+export const withtoprated = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div className="relative">
+        {" "}
+        {/* This makes the child label positionable */}
+        <label className="absolute top-2 left-2 bg-yellow-500 text-white px-2 py-1 text-xs rounded shadow-md z-10">
+          ⭐ Top Rated
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
+};
+
 export default RestaurantCard;

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import RestaurantCard from "./RestaurantCard.js";
+import RestaurantCard, { withtoprated } from "./RestaurantCard.js";
 import Shimmer from "./shimmer.js";
 import { useEffect, useState } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
@@ -28,6 +28,8 @@ const Body = () => {
     setresLists(restaurants);
     setfilteredres(restaurants);
   };
+
+  const TopRatedres = withtoprated(RestaurantCard);
 
   const OnlineStatus = useOnlineStatus();
 
@@ -108,11 +110,16 @@ const Body = () => {
               key={restaurant.info.id}
               to={"/restaurants/" + restaurant.info.id}
             >
-              <RestaurantCard
-                resData={restaurant}
-                //keys should be used no matter what !(***note :if u dont have any unique key then u can use index no pronlem)
-                // Your original comment preserved exactly as written
-              />
+              {" "}
+              {restaurant.info.avgRating >= 4.5 ? (
+                <TopRatedres resData={restaurant} />
+              ) : (
+                <RestaurantCard
+                  resData={restaurant}
+                  //keys should be used no matter what !(***note :if u dont have any unique key then u can use index no pronlem)
+                  // Your original comment preserved exactly as written
+                />
+              )}
             </Link>
           ))
         )}

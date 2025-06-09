@@ -24,6 +24,7 @@ const useRestaurantMenu = (resId) => {
       ?.filter((c) => c.card?.card?.itemCards)
       ?.flatMap((c) => c.card.card.itemCards) || [];
 
+  console.log(resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
   return { resInfo, itemCards };
 };
 

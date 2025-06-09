@@ -32,7 +32,7 @@ const Header = () => {
       {/* Desktop*/}
       <div className="hidden md:block content-center ">
         <ul className="flex mr-8  text-white">
-          <li className="px-4">{status ? "🟢" : "🔴"} Online </li>
+          <li className="px-4">{status ? "🟢 Online" : "🔴 Offline"}</li>
           <li className="px-4">
             <Link to="/">Home</Link>
           </li>
@@ -65,7 +65,7 @@ const Header = () => {
       >
         <ul className="sm:flex mr-8 text-black sm:text-white block ">
           <li className="px-4 py-2 border-b-1 border-white ">
-            {status ? "🟢" : "🔴"} Online{" "}
+            {status ? "🟢 Online" : "🔴 Offline"}
           </li>
           <li className="px-4 py-2 border-b-1 border-white">
             <Link to="/">Home</Link>

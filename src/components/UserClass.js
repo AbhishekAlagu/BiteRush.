@@ -2,6 +2,10 @@
 
 // class based component (it is just a normal javascript class)
 import React from "react";
+import { FaGithub } from "react-icons/fa";
+import { FaInstagramSquare } from "react-icons/fa";
+import { FaWhatsappSquare } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
 
 class UserClass extends React.Component {
   constructor(props) {
@@ -41,9 +45,19 @@ class UserClass extends React.Component {
           <h3 className="text-2xl font-semibold text-gray-400">
             Location: {location}
           </h3>
-          <h3 className="text-2xl font-semibold text-gray-400">
-            contact:
-            <a href="https://github.com/AbhishekAlagu">@abhishek007</a>
+          <h3 className="text-4xl font-semibold text-black flex gap-2 mt-2">
+            <a href="https://github.com/AbhishekAlagu">
+              <FaGithub />
+            </a>
+            <a href="">
+              <FaInstagramSquare />
+            </a>
+            <a href="">
+              <FaWhatsappSquare />
+            </a>
+            <a href="">
+              <FaSquareXTwitter />
+            </a>
           </h3>
         </div>
       </div>
