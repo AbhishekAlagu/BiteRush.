@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header.js";
 import Body from "./components/Body.js";
@@ -9,20 +9,34 @@ import Contact from "./components/Contact.js";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Footer from "./components/Footer.js";
+import UserContext from "./utils/UserContext";
 
 //chunking {dynamic bundeling ,code splitting } all mean the same
 
 const AppLayout = () => {
+  const [userName, setuserName] = useState();
+
+  //Autentication
+  useEffect(() => {
+    //make an API call and send username and password
+    const data = {
+      name: "Abhishek Alagu",
+    };
+    setuserName(data.name);
+  }, []);
+
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
+    <UserContext.Provider value={{ loggedInUser: userName }}>
+      <div className="min-h-screen flex flex-col">
+        <Header />
 
-      <main className="flex-grow">
-        <Outlet /> {/* Or your main content */}
-      </main>
+        <main className="flex-grow">
+          <Outlet /> {/* Or your main content */}
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </UserContext.Provider>
   );
 };
 const appRouter = createBrowserRouter([

@@ -1,5 +1,5 @@
 import { Component } from "react";
-import User from "./User";
+import UserContext from "../utils/UserContext";
 import UserClass from "./UserClass";
 import AnimatedContent from "./Animation";
 
@@ -25,6 +25,14 @@ class About extends Component {
           threshold={0.2}
           delay={0.3}
         >
+          <div>
+            loggedIn User
+            <UserContext.Consumer>
+              {({ loggedInUser }) => (
+                <h1 className="font-bold">{loggedInUser}</h1>
+              )}
+            </UserContext.Consumer>
+          </div>
           <UserClass name={" Abhishek (classes)"} />
           <div className="mt-8 hover:bg-amber-50 p-4">
             <h2 className="text-xl font-semibold m-2">About This App</h2>

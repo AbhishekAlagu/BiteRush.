@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { CDN_URL } from "../utils/constants";
 import AnimatedContent from "./Animation";
+import UserContext from "../utils/UserContext";
 
 const RestaurantCard = (props) => {
+  const { loggedInUser } = useContext(UserContext);
   const { resData } = props;
   const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } =
     resData?.info;
@@ -30,6 +33,7 @@ const RestaurantCard = (props) => {
         <h4>Rating :{avgRating}</h4>
         <h4> {costForTwo}</h4>
         <h4> {sla?.deliveryTime} mins</h4>
+        <h4> {loggedInUser}</h4>
       </div>
     </AnimatedContent>
   );
