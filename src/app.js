@@ -10,6 +10,9 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Footer from "./components/Footer.js";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 //chunking {dynamic bundeling ,code splitting } all mean the same
 
@@ -26,17 +29,19 @@ const AppLayout = () => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ loggedInUser: userName }}>
-      <div className="min-h-screen flex flex-col">
-        <Header />
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName }}>
+        <div className="min-h-screen flex flex-col">
+          <Header />
 
-        <main className="flex-grow">
-          <Outlet /> {/* Or your main content */}
-        </main>
+          <main className="flex-grow">
+            <Outlet /> {/* Or your main content */}
+          </main>
 
-        <Footer />
-      </div>
-    </UserContext.Provider>
+          <Footer />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 const appRouter = createBrowserRouter([
@@ -59,6 +64,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,

@@ -1,61 +1,84 @@
 import { Component } from "react";
 import UserContext from "../utils/UserContext";
-import UserClass from "./UserClass";
 import AnimatedContent from "./Animation";
+import UserClass from "./UserClass";
 
 class About extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {}
-
   render() {
     return (
-      <div>
+      <div className="max-w-5xl mx-auto px-6 py-10">
         <AnimatedContent
-          distance={100}
+          distance={80}
           direction="vertical"
-          reverse={false}
           duration={1}
-          ease="bounce.out"
-          initialOpacity={0.2}
+          ease="back.out"
           animateOpacity
-          scale={1.1}
-          threshold={0.2}
-          delay={0.3}
+          initialOpacity={0.1}
+          threshold={0.3}
         >
-          <div>
-            loggedIn User
+          {/* Logged In User */}
+          <div className="flex items-center text-lg text-gray-700 font-medium mb-6">
+            <span>Logged in as:</span>
             <UserContext.Consumer>
               {({ loggedInUser }) => (
-                <h1 className="font-bold">{loggedInUser}</h1>
+                <span className="ml-2 font-bold text-emerald-600">
+                  {loggedInUser}
+                </span>
               )}
             </UserContext.Consumer>
           </div>
-          <UserClass name={" Abhishek (classes)"} />
-          <div className="mt-8 hover:bg-amber-50 p-4">
-            <h2 className="text-xl font-semibold m-2">About This App</h2>
-            <p className="text-gray-400 m-2">
-              A modern food ordering app built with React and Tailwind CSS.
-              Browse restaurants, view their menus, and simulate orders with a
-              smooth user experience.
-            </p>
-            <h2 className="text-xl font-semibold mt-6 m-2">Tech Stack</h2>
-            <ul className="list-disc pl-6 text-gray-400">
-              <li>React.js</li>
-              <li>Tailwind CSS</li>
-              <li>JavaScript (ES6+)</li>
-            </ul>
 
-            <h2 className="text-xl font-semibold mt-6 m-2">Features</h2>
-            <ul className="list-disc pl-6 text-gray-400">
-              <li>Browse & search restaurants</li>
-              <li>View dynamic menu for each restaurant</li>
-              <li>Add items to cart</li>
-              <li>Custom hooks for fetching data</li>
+          {/* Personal Component (optional) */}
+          <UserClass name="Abhishek (Developer)" />
+
+          {/* About the Project */}
+          <section className="mt-10 bg-white p-6 rounded-xl shadow-md">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+              Welcome to BiteRush 🍔
+            </h2>
+            <p className="text-gray-600 leading-relaxed">
+              BiteRush is a responsive and interactive food ordering web
+              application developed using modern frontend technologies. Users
+              can browse top-rated restaurants, view menus, and simulate placing
+              orders—all in a smooth and intuitive UI.
+            </p>
+          </section>
+
+          {/* Tech Stack */}
+          <section className="mt-10">
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">
+              Tech Stack
+            </h3>
+            <ul className="list-disc list-inside text-gray-700 space-y-1">
+              <li>⚛️ React.js for building UI components</li>
+              <li>🎨 Tailwind CSS for rapid, responsive styling</li>
+              <li>🧠 Redux Toolkit for cart state management</li>
+              <li>🌐 React Router for dynamic routing</li>
+              <li>📦 Custom Hooks & Context API for clean logic reuse</li>
+              <li>🎥 Framer Motion & scroll animations for better UX</li>
             </ul>
-          </div>
+          </section>
+
+          {/* Key Features */}
+          <section className="mt-10">
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">
+              Key Features
+            </h3>
+            <ul className="list-disc list-inside text-gray-700 space-y-1">
+              <li>🔍 Filter restaurants by top rating</li>
+              <li>🛒 Add/remove menu items to a persistent cart</li>
+              <li>📃 View restaurant-specific dynamic menus via API</li>
+              <li>📱 Mobile responsive design using Tailwind breakpoints</li>
+              <li>♻️ Code splitting & optimization via dynamic bundling</li>
+              <li>⚙️ Deployed using Netlify for easy demo access</li>
+            </ul>
+          </section>
+
+          {/* Developer Info */}
+          <section className="mt-10 text-gray-600 text-sm text-center border-t pt-4">
+            Built with ❤️ by Abhishek. This project is a demonstration of React
+            ecosystem mastery, tailored for real-world frontend development.
+          </section>
         </AnimatedContent>
       </div>
     );

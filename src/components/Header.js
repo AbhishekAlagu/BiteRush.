@@ -2,8 +2,9 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import LOGO_URL from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [isopen, setisopen] = useState(false);
@@ -11,6 +12,9 @@ const Header = () => {
 
   const { loggedInUser } = useContext(UserContext);
   const status = useOnlineStatus();
+
+  // Subscribing to the store using a selector
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <div className="bg-amber-400 shadow-lg">
@@ -32,7 +36,7 @@ const Header = () => {
           className="md:hidden text-white text-2xl"
           onClick={() => setisopen(!isopen)}
         >
-          <RxHamburgerMenu />
+          {isopen ? <RxCross2 /> : <RxHamburgerMenu />}
         </button>
 
         {/* Desktop Nav */}
@@ -48,7 +52,9 @@ const Header = () => {
             <li>
               <Link to="/contact">Contact</Link>
             </li>
-            <li>Cart</li>
+            <li className="py-2 font-bold">
+              <Link to="/cart"> Cart ({cartItems.length})</Link>
+            </li>
             <li
               className="cursor-pointer"
               onClick={() =>
@@ -64,7 +70,7 @@ const Header = () => {
 
       {/* Mobile Nav */}
       {isopen && (
-        <div className="md:hidden bg-white shadow-md">
+        <div className="sm:hidden bg-white shadow-md">
           <ul className="text-black divide-y divide-gray-200 text-center">
             <li className="py-2">{status ? "🟢 Online" : "🔴 Offline"}</li>
             <li className="py-2">
@@ -76,7 +82,9 @@ const Header = () => {
             <li className="py-2">
               <Link to="/contact">Contact</Link>
             </li>
-            <li className="py-2">Cart</li>
+            <li className="py-2 font-bold">
+              <Link to="/cart"> Cart ({cartItems.length})</Link>
+            </li>
             <li
               className="py-2 cursor-pointer"
               onClick={() =>
@@ -85,7 +93,7 @@ const Header = () => {
             >
               {btnNameReact}
             </li>
-            <li className="px-4">{loggedInUser}</li>
+            <li className="p-4 hidden">{loggedInUser}</li>
           </ul>
         </div>
       )}

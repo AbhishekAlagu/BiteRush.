@@ -3,7 +3,7 @@ import RestaurantCard, { withtoprated } from "./RestaurantCard.js";
 import Shimmer from "./shimmer.js";
 import { useEffect, useState } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
-import AnimatedContent from "./Animation.js";
+import { FaFilter } from "react-icons/fa";
 
 const Body = () => {
   // state variable - Your original comments maintained
@@ -86,7 +86,10 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div className="m-2 p-4">
+
+        <div className="m-4 p-4 flex items-center gap-4     w-fit">
+          <FaFilter className="text-2xl text-amber-600" />
+
           <button
             className="bg-emerald-300 px-8 py-2 content-center rounded-lg"
             onClick={() => {
@@ -96,7 +99,7 @@ const Body = () => {
               setfilteredres(filteredList);
             }}
           >
-            Top Rated Restaurant
+            Top Rated Restaurants
           </button>
         </div>
       </div>
