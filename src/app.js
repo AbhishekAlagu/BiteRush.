@@ -13,6 +13,8 @@ import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
+// index.css or App.jsx
+import "leaflet/dist/leaflet.css";
 
 //chunking {dynamic bundeling ,code splitting } all mean the same
 

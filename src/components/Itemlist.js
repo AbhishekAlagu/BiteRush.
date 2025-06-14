@@ -2,20 +2,18 @@ import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
 import { addItem } from "../utils/cartSlice";
 
-const Itemlist = ({ items }) => {
+const Itemlist = ({ items, handleremove }) => {
   const dispatch = useDispatch();
 
   const handleAddItem = (item) => {
-    //Dispatch an action
     dispatch(addItem(item));
-    console.log(item);
   };
 
   return (
     <div>
-      {items.map((item) => (
+      {items.map((item, index) => (
         <div
-          key={item.card.info.id}
+          key={`${item.card.info.id}-${index}`}
           className="p-4 m-2 border-b border-gray-200 text-left flex flex-col md:flex-row justify-between gap-4"
         >
           {/* Left Section: Name, Price, Description */}
@@ -35,8 +33,8 @@ const Itemlist = ({ items }) => {
             </p>
           </div>
 
-          {/* Right Section: Image + Add Button */}
-          <div className=" md:w-3/12 w-full flex md:flex-col flex-row-reverse items-center justify-between md:items-end">
+          {/* Right Section: Image + Buttons */}
+          <div className="md:w-3/12 w-full flex md:flex-col flex-row-reverse items-center justify-between md:items-end">
             <img
               src={
                 item.card.info.imageId
@@ -46,12 +44,25 @@ const Itemlist = ({ items }) => {
               alt={item.card.info.name}
               className="w-24 h-24 object-cover rounded-lg shadow-sm mb-2 md:mb-3"
             />
-            <button
-              className="m-2 px-4 py-1 bg-white border border-gray-300 text-sm shadow hover:shadow-md rounded"
-              onClick={() => handleAddItem(item)}
-            >
-              Add +
-            </button>
+
+            {/* Add and Remove buttons conditionally rendered */}
+            <div className="flex gap-2">
+              <button
+                className="px-3 py-1 bg-green-500 text-white text-sm rounded hover:bg-green-600"
+                onClick={() => handleAddItem(item)}
+              >
+                Add
+              </button>
+
+              {handleremove && (
+                <button
+                  className="px-3 py-1 mr-1 bg-red-500 text-white text-sm rounded hover:bg-red-600"
+                  onClick={() => handleremove(item)}
+                >
+                  Remove
+                </button>
+              )}
+            </div>
           </div>
         </div>
       ))}

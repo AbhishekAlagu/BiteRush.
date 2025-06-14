@@ -1,26 +1,45 @@
-import { useSelector } from "react-redux";
 import Itemlist from "./Itemlist";
-import { clearCart } from "../utils/cartSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { removeItem } from "../utils/cartSlice";
+
 const Cart = () => {
-  const cartItems = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
-  const handleclear = (cartItems) => {
-    dispatch(clearCart(cartItems));
+  const cartItems = useSelector((state) => state.cart.items);
+
+  const handleRemoveItem = (item) => {
+    dispatch(removeItem(item));
   };
+
+  const getTotalAmount = () => {
+    return cartItems.reduce((acc, entry) => {
+      const price =
+        entry.item.card.info.price || entry.item.card.info.defaultPrice || 0;
+      return acc + (price / 100) * entry.quantity;
+    }, 0);
+  };
+
   return (
-    <div className="text-center m-4 p-4">
-      <h1 className="text-2xl font-bold">Cart</h1>
-      <div className=" w-6/12 m-auto">
-        <Itemlist items={cartItems} />
-      </div>
-      <button
-        className="p-2 m-2 bg-black text-white rounded-lg "
-        onClick={() => handleclear(cartItems)}
-      >
-        Clear Cart
-      </button>
-      {cartItems.length == 0 && <h1>Cart is empty,Add items to the Cart !!</h1>}
+    <div className="p-6">
+      <h2 className=" text-center text-xl font-bold mb-4">Your Cart</h2>
+
+      {cartItems.length === 0 ? (
+        <p className="text-center">
+          Your cart is empty,Add items to your Cart!!
+        </p>
+      ) : (
+        <div className="w-10/12 md:w-6/12 m-auto">
+          <Itemlist
+            items={cartItems.map((entry) => entry.item)}
+            handleremove={handleRemoveItem}
+          />
+
+          <div className="mt-4 text-right">
+            <h3 className="text-lg font-semibold">
+              Total: ₹{getTotalAmount().toFixed(2)}
+            </h3>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

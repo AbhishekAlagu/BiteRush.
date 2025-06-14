@@ -10,16 +10,14 @@ const RestaurantCard = (props) => {
     resData?.info;
   return (
     <AnimatedContent
-      distance={70}
+      AnimatedContent
+      distance={80}
       direction="vertical"
-      reverse={false}
       duration={1}
-      ease="bounce.out"
-      initialOpacity={0.2}
+      ease="back.out"
       animateOpacity
-      scale={1.1}
-      threshold={0.2}
-      delay={0.3}
+      initialOpacity={0.1}
+      threshold={0.3}
     >
       <div className="res-card shadow-lg hover:bg-blue-100 m-2 p-4 w-[200px] h-auto bg-fuchsia-50  rounded-md">
         <img
