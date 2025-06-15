@@ -28,19 +28,20 @@ class About extends Component {
             </UserContext.Consumer>
           </div>
 
-          {/* Personal Component (optional) */}
+          {/* Optional Personal Class Component */}
           <UserClass name="Abhishek (Developer)" />
 
           {/* About the Project */}
           <section className="mt-10 bg-white p-6 rounded-xl shadow-md">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-              Welcome to BiteRush 🍔
+              Welcome to BiteRush 🍽️
             </h2>
             <p className="text-gray-600 leading-relaxed">
-              BiteRush is a responsive and interactive food ordering web
-              application developed using modern frontend technologies. Users
-              can browse top-rated restaurants, view menus, and simulate placing
-              orders—all in a smooth and intuitive UI.
+              BiteRush is a fully responsive food ordering application built
+              with modern React practices. It allows users to explore real-time
+              menus from Swiggy’s public API, manage their cart with persistent
+              state, validate orders, and experience a sleek UI/UX with
+              animations.
             </p>
           </section>
 
@@ -50,34 +51,40 @@ class About extends Component {
               Tech Stack
             </h3>
             <ul className="list-disc list-inside text-gray-700 space-y-1">
-              <li>⚛️ React.js for building UI components</li>
-              <li>🎨 Tailwind CSS for rapid, responsive styling</li>
-              <li>🧠 Redux Toolkit for cart state management</li>
-              <li>🌐 React Router for dynamic routing</li>
-              <li>📦 Custom Hooks & Context API for clean logic reuse</li>
-              <li>🎥 Framer Motion & scroll animations for better UX</li>
+              <li>⚛️ React.js for component-driven architecture</li>
+              <li>🧠 Redux Toolkit for global cart state and actions</li>
+              <li>💾 localStorage for cart persistence across sessions</li>
+              <li>🎨 Tailwind CSS for utility-first responsive styling</li>
+              <li>🌐 React Router for client-side routing</li>
+              <li>🧩 Context API for user context management</li>
+              <li>🎥 Framer Motion + custom scroll animations</li>
             </ul>
           </section>
 
+          {/* Key Features */}
           {/* Key Features */}
           <section className="mt-10">
             <h3 className="text-xl font-semibold text-gray-800 mb-3">
               Key Features
             </h3>
             <ul className="list-disc list-inside text-gray-700 space-y-1">
-              <li>🔍 Filter restaurants by top rating</li>
-              <li>🛒 Add/remove menu items to a persistent cart</li>
-              <li>📃 View restaurant-specific dynamic menus via API</li>
-              <li>📱 Mobile responsive design using Tailwind breakpoints</li>
-              <li>♻️ Code splitting & optimization via dynamic bundling</li>
-              <li>⚙️ Deployed using Netlify for easy demo access</li>
+              <li>🔍 Browse restaurants and menus via Swiggy API</li>
+              <li>⭐ Filter restaurants by top ratings</li>
+              <li>🛒 Add/remove items to cart with quantity tracking</li>
+              <li>💾 Cart state saved even after page reloads</li>
+              <li>📋 Form validation for the checkout experience</li>
+              <li>✅ Order confirmation screen after placing order</li>
+              <li>💡 Shimmer UI used as loading fallback (better UX)</li>
+              <li>📱 Fully responsive design for mobile & desktop</li>
+              <li>🚀 Production deployment via Netlify</li>
             </ul>
           </section>
 
           {/* Developer Info */}
           <section className="mt-10 text-gray-600 text-sm text-center border-t pt-4">
-            Built with ❤️ by Abhishek. This project is a demonstration of React
-            ecosystem mastery, tailored for real-world frontend development.
+            Built with ❤️ by Abhishek. BiteRush is not just a practice project —
+            it reflects a real-world food ordering experience using scalable
+            frontend architecture and best coding practices in React.
           </section>
         </AnimatedContent>
       </div>
