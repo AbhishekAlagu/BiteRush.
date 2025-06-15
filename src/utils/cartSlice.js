@@ -1,14 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-//redux slice
+// ✅ Define initialState safely
+const savedCart = localStorage.getItem("cart");
+const initialState = {
+  items: savedCart ? JSON.parse(savedCart) : [],
+};
+
 const cartSlice = createSlice({
   name: "cart",
-  initialState: {
-    items: [],
-  },
+  initialState,
   reducers: {
     addItem: (state, action) => {
-      // we are mutating the state here
       if (!action.payload?.card?.info?.id) {
         console.error("Invalid item structure:", action.payload);
         return;
@@ -20,16 +22,13 @@ const cartSlice = createSlice({
         (entry) => entry.item?.card?.info?.id === itemId
       );
       if (index !== -1) {
-        // Already in cart: increase quantity
         state.items[index].quantity += 1;
       } else {
-        // New item: push with quantity 1
         state.items.push({ item: action.payload, quantity: 1 });
       }
     },
     removeItem: (state, action) => {
       const itemId = action.payload?.card?.info?.id;
-
       if (!itemId) {
         console.error("Invalid item to remove:", action.payload);
         return;
@@ -43,7 +42,7 @@ const cartSlice = createSlice({
         if (state.items[index].quantity > 1) {
           state.items[index].quantity -= 1;
         } else {
-          state.items.splice(index, 1); // Remove item completely
+          state.items.splice(index, 1);
         }
       }
     },
@@ -54,5 +53,4 @@ const cartSlice = createSlice({
 });
 
 export const { addItem, removeItem, clearCart } = cartSlice.actions;
-
 export default cartSlice.reducer;

@@ -1,6 +1,7 @@
 import Itemlist from "./Itemlist";
 import { useDispatch, useSelector } from "react-redux";
 import { removeItem } from "../utils/cartSlice";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="p-6">
+    <div className="p-6 text-center">
       <h2 className=" text-center text-xl font-bold mb-4">Your Cart</h2>
 
       {cartItems.length === 0 ? (
@@ -40,6 +41,11 @@ const Cart = () => {
           </div>
         </div>
       )}
+      <Link to="/checkout">
+        <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4">
+          Proceed to Checkout
+        </button>
+      </Link>
     </div>
   );
 };

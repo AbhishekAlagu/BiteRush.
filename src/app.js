@@ -15,6 +15,8 @@ import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
 // index.css or App.jsx
 import "leaflet/dist/leaflet.css";
+import Checkout from "./components/Checkout.js";
+import OrderConfirmation from "./components/Orderconfirmation.js";
 
 //chunking {dynamic bundeling ,code splitting } all mean the same
 
@@ -70,6 +72,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />,
+      },
+      {
+        path: "/order-confirm",
+        element: <OrderConfirmation />,
       },
     ],
     errorElement: <Error />,
