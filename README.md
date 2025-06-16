@@ -73,7 +73,7 @@ BiteRush is a modern, responsive food ordering web application built using React
 ## 👨‍💻 Developer
 
 **Abhishek Alagu**  
-📧 [Your Email]  
+📧 [abhishekalagu@gmail.com]  
 🔗 [LinkedIn](https://www.linkedin.com/in/your-profile)  
 🐙 [GitHub](https://github.com/AbhishekAlagu)
 
