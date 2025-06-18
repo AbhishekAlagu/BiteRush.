@@ -13,7 +13,7 @@ class UserClass extends React.Component {
       userInfo: {
         name: "Loading...",
         location: "Fetching location...",
-        avatar_url: "",
+        avatar_url: "img",
       },
     };
   }

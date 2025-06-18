@@ -39,13 +39,13 @@ const Cart = () => {
               Total: ₹{getTotalAmount().toFixed(2)}
             </h3>
           </div>
+          <Link to="/checkout">
+            <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4">
+              Proceed to Checkout
+            </button>
+          </Link>
         </div>
       )}
-      <Link to="/checkout">
-        <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4">
-          Proceed to Checkout
-        </button>
-      </Link>
     </div>
   );
 };
