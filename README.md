@@ -13,8 +13,8 @@ BiteRush is a modern, responsive food ordering web application built using React
 ## 📸 Screenshots
 
 <!-- Add screenshots or GIFs if available -->
-<img src="screenshots/homepage.png" alt="Home Page" width="600"/>
-<img src="screenshots/menu.png" alt="Restaurant Menu" width="600"/>
+<img src="assests/(home).png" alt="Home Page" width="600"/>
+<img src="assests/menu.png" alt="Restaurant Menu" width="600"/>
 
 ---
 
@@ -46,8 +46,10 @@ BiteRush is a modern, responsive food ordering web application built using React
 - ✅ Animations on scroll & transitions
 
 ---
+## 📁 Project Structure
 
- 
+<pre> ``` REACT Project-1/ │ ├── .git/ ├── .parcel-cache/ ├── assets/ ├── dist/ ├── node_modules/ │ ├── src/ │ ├── components/ │ │ ├── About.js │ │ ├── Animation.js │ │ ├── Body.js │ │ ├── Cart.js │ │ ├── Checkout.js │ │ ├── Contact.js │ │ ├── Error.js │ │ ├── Footer.js │ │ ├── Header.js │ │ ├── Itemlist.js │ │ ├── Orderconfirmation.js │ │ ├── RestaurantCard.js │ │ ├── RestaurantCategory.js │ │ ├── RestaurantMenu.js │ │ ├── Shimmer.js │ │ ├── User.js │ │ └── UserClass.js │ │ │ ├── utils/ │ │ ├── appStore.js │ │ ├── cartSlice.js │ │ ├── constants.js │ │ ├── useOnlineStatus.js │ │ ├── useRestaurantMenu.js │ │ └── UserContext.js │ │ │ ├── App.js │ ├── index.css │ └── index.html │ ├── .gitignore ├── package.json ├── package-lock.json └── README.md ``` </pre>
+---
 ## 🔧 Setup & Run Locally
 
 1. Clone the repo  
@@ -64,10 +66,28 @@ BiteRush is a modern, responsive food ordering web application built using React
 
 ---
 
-## 📌 Notes
+## 📌 Note
 
 > This project uses [Swiggy's public API](https://www.swiggy.com/) for fetching restaurant and menu data. It's built for learning purposes and UI simulation, not commercial use.
+> 🚫 Note on Deployment
+This project was not deployed due to CORS issues while trying to access Swiggy's public APIs.
+I implemented multiple workarounds like:
 
+Netlify serverless functions (/.netlify/functions)
+
+CORS proxy services (e.g. corsproxy.io)
+
+Despite these efforts, the API calls were consistently blocked because Swiggy does not offer a public or developer-friendly API.
+
+💡 The project is fully functional locally, and you can test the core features such as:
+
+Live restaurant menu fetching
+
+Dynamic cart updates
+
+Order confirmation page
+
+I’ve documented the code thoroughly, and you are welcome to explore or extend the application further.
 ---
 
 ## 👨‍💻 Developer
